@@ -1,6 +1,6 @@
 {
   "name": "@bloco-b/api",
-  "version": "7.0.1",
+  "version": "1.0.0",
   "description": "express.js api in typescript",
   "keywords": [
     "api",
@@ -36,7 +36,7 @@
     "url": "https://github.com/rafael-g-depaulo/bloco-b-express-react-sequelize-pgsql/issues"
   },
   "dependencies": {
-    "@bloco-b/adder": "^7.0.1",
+    "@bloco-b/adder": "^1.0.0",
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.7",
     "@types/express": "^4.17.8",

@@ -1,6 +1,6 @@
 {
   "name": "@bloco-b/logger",
-  "version": "7.0.1",
+  "version": "1.0.0",
   "description": "logging library",
   "keywords": [
     "log"

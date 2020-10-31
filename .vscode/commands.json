@@ -30,15 +30,6 @@
       "alignment": "left",
       "priority": 0,
       "tooltip": "Run server",
-      "text": "$(terminal) Api",
-      "arguments": ["Api"],
-      "command": "terminals.runTerminalByName",
-      "color": "#FFFFFF"
-    },
-    {
-      "alignment": "left",
-      "priority": 0,
-      "tooltip": "Run server",
       "text": "$(terminal) Strapi",
       "arguments": ["Strapi"],
       "command": "terminals.runTerminalByName",

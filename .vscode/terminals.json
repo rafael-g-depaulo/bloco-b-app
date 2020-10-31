@@ -17,14 +17,6 @@
       "command": "yarn start"
     },
     {
-      "name": "Api",
-      "icon": "server",
-      "description": "Run an Express.js server with the API",
-      "persistent": "persistent_bloco-b_api",
-      "cwd": "[workspaceFolder]/apps/api",
-      "command":"yarn start"
-    },
-    {
       "name": "Strapi",
       "icon": "server",
       "description": "Run Strapi server",

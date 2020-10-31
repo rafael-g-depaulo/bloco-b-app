@@ -1,9 +1,9 @@
 {
-  "name": "@starter-project/server-conn-info",
+  "name": "@bloco-b/server-conn-info",
   "version": "7.0.1",
   "description": "lib to get connection info to connect apps to servers",
   "author": "Rafael G. de Paulo <rafael.g.depaulo@gmail.com>",
-  "homepage": "https://github.com/rafael-g-depaulo/starter-project-fullstack-web#readme",
+  "homepage": "https://github.com/rafael-g-depaulo/bloco-b-fullstack-web#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafael-g-depaulo/starter-project-fullstack-web.git"
+    "url": "git+https://github.com/rafael-g-depaulo/bloco-b-fullstack-web.git"
   },
   "keywords": [
     "lib",

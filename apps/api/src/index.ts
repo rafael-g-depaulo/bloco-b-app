@@ -1,5 +1,5 @@
 import express from 'express'
-import { add } from '@starter-project/adder'
+import { add } from '@bloco-b/adder'
 
 const app = express()
 

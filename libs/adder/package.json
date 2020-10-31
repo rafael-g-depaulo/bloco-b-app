@@ -1,5 +1,5 @@
 {
-  "name": "@starter-project/adder",
+  "name": "@bloco-b/adder",
   "version": "7.0.1",
   "license": "MIT",
   "main": "dist/index.js",

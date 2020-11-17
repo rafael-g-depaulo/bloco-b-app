@@ -57,6 +57,8 @@
   },
   "dependencies": {
     "@preconstruct/cli": "^1.1.20",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^4.0.0",
     "ts-node": "^9.0.0",
     "ultra-runner": "^3.5.0"
   }

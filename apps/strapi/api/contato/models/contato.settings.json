@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "contatoes",
+  "info": {
+    "name": "Contato"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "email": {
+      "type": "string",
+      "required": true,
+      "default": "email@email.com"
+    },
+    "endereco": {
+      "type": "string",
+      "required": true,
+      "default": "Av. Central Área Especial 19, Lote J/K, Sala 109, Parte G, Ed. Hibari  - Núcleo Bandeirante – Brasília/DF  - CEP 71.710-585"
+    },
+    "facebookLink": {
+      "type": "string",
+      "required": true
+    },
+    "instagramLink": {
+      "type": "string",
+      "required": true
+    },
+    "youtubeLink": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

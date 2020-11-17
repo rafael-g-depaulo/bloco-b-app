@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/o-que-fazemos",
+      "handler": "o-que-fazemos.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/o-que-fazemos/count",
+      "handler": "o-que-fazemos.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/o-que-fazemos/:id",
+      "handler": "o-que-fazemos.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/o-que-fazemos",
+      "handler": "o-que-fazemos.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/o-que-fazemos/:id",
+      "handler": "o-que-fazemos.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/o-que-fazemos/:id",
+      "handler": "o-que-fazemos.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

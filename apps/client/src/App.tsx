@@ -1,8 +1,9 @@
 import React from 'react'
 
 import GlobalStyles from 'GlobalStyles'
-import Routes from 'Routes'
 import { ThemeProvider } from 'Themes'
+import Routes from 'Routes'
+import { showRoutes } from 'FeatureFlags'
 
 export const App = () => {
 
@@ -10,7 +11,7 @@ export const App = () => {
     <>
       <ThemeProvider>
         <GlobalStyles />
-        <Routes />
+        { showRoutes && <Routes /> }
       </ThemeProvider>
     </>
   )

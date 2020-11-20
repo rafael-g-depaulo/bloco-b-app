@@ -4,13 +4,20 @@ export const GlobalStyles = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    font-family: "Town Text";
-    font-size: ${({ theme }) => theme.fontSize};
   }
-
+  
   body {
     margin: 0;
-    min-height: 100vh;
+    min-height: 100%;
+
+    font-family: Calibri;
+    font-size: ${({ theme }) => theme.fontSize};
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
   }
 
 `

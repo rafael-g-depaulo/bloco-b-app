@@ -7,13 +7,14 @@ const Container = styled.header`
   align-items: center;
 
   width: 100%;
-  height: 90px;
+  padding: 20px 5%;
   background-color: #ffffff;
 `;
 
 const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   width: 100%;
   max-width: 1120px;
@@ -21,7 +22,7 @@ const HeaderContent = styled.div`
   margin: 0 auto;
 
   > nav {
-    margin-top: 65px;
+    /* margin-top: 65px; */
       > button {
         cursor: pointer;
         border: 0;
@@ -44,7 +45,7 @@ const HeaderContent = styled.div`
 `;
 
 const Img = styled.img `
-  margin-top: 40px;
+  /* margin-top: 40px; */
   width: 251px;
   height: 74px;
   object-fit: contain;
@@ -54,7 +55,7 @@ const Img = styled.img `
   const Animation = styled.img`
   width: 100%;
   height: 600px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 `;
 
 export const Header: FC = ({ children }) => {

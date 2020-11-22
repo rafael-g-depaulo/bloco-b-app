@@ -30,13 +30,34 @@ const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 252px;
+  width: 265px;
   height: 253px;
   margin-top: 55px;
   background-color: rgba(115, 44, 44, 0.72);
   
   cursor: pointer;
   overflow: hidden;
+
+  @media(max-width: 1199.98px){
+    width: 252px;
+    height: 253px;
+  }
+
+  @media(max-width: 992px){
+    width: 245px;
+    height: 253px;
+
+  }
+
+  @media(max-width: 767.98px){
+    width: 210px;
+    height: 253px; 
+  }
+
+  @media(max-width: 640px){
+    width: 150px;
+    height: 253px;
+  }
 
   > img {
     user-select: none;

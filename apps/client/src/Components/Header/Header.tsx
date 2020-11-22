@@ -5,7 +5,6 @@ import logo from '../Header/logo-bloco-b.png'
 const Container = styled.header`
   display: flex;
   align-items: center;
-
   width: 100%;
   padding: 20px 5%;
   background-color: #ffffff;
@@ -20,6 +19,12 @@ const HeaderContent = styled.div`
   max-width: 1120px;
 
   margin: 0 auto;
+
+  @media(max-width: 992px), (max-width: 767.98px), (max-width: 640px){
+    flex-direction: column;
+
+  }
+  
 
   > nav {
     /* margin-top: 65px; */
@@ -40,6 +45,25 @@ const HeaderContent = styled.div`
         &:hover {
           color: #000;
         }
+
+        @media(max-width: 992px){
+          padding: 11px 11px;
+          margin-top: 18px;
+
+        }
+
+        @media(max-width: 767.98px){
+          padding: 7px 6px;
+          margin-top: 15px;
+          font-size: 17px;
+        }
+
+        @media(max-width: 640px){
+          padding: 5px 4px 0px 5px;
+          margin-top: 15px;
+        
+        }
+
       }
   }
 `;

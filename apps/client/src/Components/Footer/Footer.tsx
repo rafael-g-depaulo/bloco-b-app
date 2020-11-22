@@ -31,6 +31,15 @@ const TopSideContent = styled.div`
   width: 100%;
 
   margin: 0 auto;
+
+  @media(max-width: 992px){
+    width: 75%;
+    flex-direction: column;
+    padding: 0px 0px 0px 64px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
 `;
 
 const AddressAndEmail = styled.div`
@@ -61,6 +70,12 @@ const SocialMedias = styled.div`
   align-items: center;
 
   margin: 0 24px;
+
+  @media(max-width: 992px){
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 0;
+  }
 
   > strong {
     color: #fff;
@@ -100,15 +115,28 @@ const BlocoBContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  > img {
-    margin: auto;
-  }
-
   > strong {
     font-weight: 600;
     font-size: 16px;
     color: #fff;
   }
+
+  > img {
+    margin: auto;
+
+  }
+
+  @media(max-width: 992px){
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 0;
+    margin-top: 20px;
+
+    >img{
+      margin: 0 0;
+    }
+  }
+
 `;
 
 const BottomSide = styled.section`
@@ -123,6 +151,7 @@ const BottomSide = styled.section`
 const BottomSideContent = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items:center;
 
   max-width: 1120px;
   width: 100%;
@@ -131,7 +160,35 @@ const BottomSideContent = styled.div`
 
   color: #fff;
 
+  @media(max-width: 992px){
+    flex-direction: column;
+
+    >strong{
+      margin-bottom: 15px;
+    }
+  }
+
+  @media(max-width: 767.98px){
+    flex-direction: column;
+    font-size: 16px;
+
+    >strong{
+      margin-bottom: 15px;
+    }
+  }
+
+  @media(max-width: 640px){
+    flex-direction: column;
+    font-size: 14px;
+
+    >strong{
+      margin-bottom: 15px;
+    }
+  }
+
+
   > nav {
+
     > button {
       font-size: 18px;
       cursor: pointer;

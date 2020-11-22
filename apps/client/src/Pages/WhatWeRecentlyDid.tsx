@@ -18,10 +18,33 @@ const Title = styled.h1`
 `;
 
 const Images = styled.div`
-  display: grid; /* Organiza em quadradinhos iguais */
-  grid-template-columns: repeat(3, 337px); /* 3 colunas de 337px */
-  grid-auto-rows: 336px; /* Independente de quantas fileiras, todas vao ter 336 px */
-  gap: 8px; /* Distancia tudo em 8px */
+  display: grid; 
+  grid-template-columns: repeat(3, 345px); 
+  grid-auto-rows: 336px; 
+  gap: 15px;
+
+  @media(max-width: 1199.98px){
+    grid-template-columns: repeat(3, 330px); 
+    grid-auto-rows: 336px;
+  }
+
+  @media(max-width: 992px){
+    grid-template-columns: repeat(2, 340px); 
+    grid-auto-rows: 336px;
+    gap: 20px;
+
+  }
+
+  @media(max-width: 767.98px){
+    grid-template-columns: repeat(2, 337px); 
+    grid-auto-rows: 336px; 
+  }
+
+  @media(max-width: 640px){
+    grid-template-columns: repeat(1,415px);
+    grid-auto-rows: 336px;
+  }
+
 `;
 
 const ImageContainer = styled.div`

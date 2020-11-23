@@ -5,6 +5,7 @@ import AboutUs from 'Pages/AboutUs'
 import WhatWeDo from 'Pages/WhatWeDo'
 import WhatWeRecentlyDo from 'Pages/WhatWeRecentlyDid'
 import Footer from 'Components/Footer/Footer'
+import { showOQueFazemos, showQuemSomos, showUltimosAnos } from "FeatureFlags";
 
 
 const ImgContainer = styled.div`
@@ -44,9 +45,9 @@ export const HomePage: FC = () => {
       <div ref={homeRef}>
         <Header>
           <button type="button" onClick={() => handleScroll(homeRef)}>Home</button>
-          <button type="button" onClick={() => handleScroll(aboutUsRef)}>Quem Somos</button>
-          <button type="button" onClick={() => handleScroll(whatWeDoRef)}>Serviços</button> 
-          <button type="button" onClick={() => handleScroll(whatWeRecentlyDidRef)}>O que fizemos nos últimos anos</button>
+          { showQuemSomos && <button type="button" onClick={() => handleScroll(aboutUsRef)}>Quem Somos</button> }
+          { showOQueFazemos && <button type="button" onClick={() => handleScroll(whatWeDoRef)}>Serviços</button> }
+          { showUltimosAnos && <button type="button" onClick={() => handleScroll(whatWeRecentlyDidRef)}>O que fizemos nos últimos anos</button> }
           <button type="button" onClick={() => handleScroll(contactRef)}>Contato</button>
         </Header>
       </div>
@@ -54,24 +55,37 @@ export const HomePage: FC = () => {
       <div ref={aboutUsRef}>
         <AboutUs />
       </div>
-      <ImgContainer>
-        <img src="https://d12dkjq56sjcos.cloudfront.net/pub/media/magefan_blog/l/o/louvre-museum-paris-big-bus-tours-jan-2017.jpg" alt=""/>
-      </ImgContainer>
-      <div ref={whatWeDoRef}>
-        <WhatWeDo />
-      </div>
-      <ImgContainer>
-        <img src="https://tul.imgix.net/content/article/things-to-do-queenstown-1.jpg?auto=format,compress&w=1200&h=630&fit=crop" alt="Queenstown" />
-      </ImgContainer>
-      <div ref={whatWeRecentlyDidRef}>
-        <WhatWeRecentlyDo />
-      </div>
+
+      {/* SESSÃO DE QUEM SOMOS */}
+      { showQuemSomos && 
+        <>
+          <ImgContainer>
+            <img src="https://d12dkjq56sjcos.cloudfront.net/pub/media/magefan_blog/l/o/louvre-museum-paris-big-bus-tours-jan-2017.jpg" alt=""/>
+          </ImgContainer>
+          <div ref={whatWeDoRef}>
+            <WhatWeDo />
+          </div>
+        </>
+      }
+
+      {/* SESSÃO DE O QUE FIZEMOS NOS ULTIMOS ANOS */}
+      { showUltimosAnos && 
+        <>
+          <ImgContainer>
+            <img src="https://tul.imgix.net/content/article/things-to-do-queenstown-1.jpg?auto=format,compress&w=1200&h=630&fit=crop" alt="Queenstown" />
+          </ImgContainer>
+          <div ref={whatWeRecentlyDidRef}>
+            <WhatWeRecentlyDo />
+          </div>
+        </>
+      }
+
       <div ref={contactRef}>
         <Footer>
           <button type="button" onClick={() => handleScroll(homeRef)}>Home</button>
-          <button type="button" onClick={() => handleScroll(aboutUsRef)}>Quem Somos</button>
-          <button type="button" onClick={() => handleScroll(whatWeDoRef)}>Serviços</button> 
-          <button type="button" onClick={() => handleScroll(whatWeRecentlyDidRef)}>O que fizemos nos últimos anos</button>
+          { showQuemSomos && <button type="button" onClick={() => handleScroll(aboutUsRef)}>Quem Somos</button> }
+          { showOQueFazemos && <button type="button" onClick={() => handleScroll(whatWeDoRef)}>Serviços</button> }
+          { showUltimosAnos && <button type="button" onClick={() => handleScroll(whatWeRecentlyDidRef)}>O que fizemos nos últimos anos</button> }
           <button type="button" onClick={() => handleScroll(contactRef)}>Contato</button>
         </Footer>
       </div>

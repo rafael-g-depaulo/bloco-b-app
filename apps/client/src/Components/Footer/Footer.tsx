@@ -145,7 +145,6 @@ const BottomSide = styled.section`
 
   background-color: #000000;
   width: 100%;
-  height: 60px;
 `;
 
 const BottomSideContent = styled.div`
@@ -156,7 +155,7 @@ const BottomSideContent = styled.div`
   max-width: 1120px;
   width: 100%;
 
-  margin: 0 auto;
+  margin: 0.4em auto;
 
   color: #fff;
 

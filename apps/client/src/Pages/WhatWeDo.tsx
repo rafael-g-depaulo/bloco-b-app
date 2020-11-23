@@ -127,14 +127,14 @@ const WhatWeDo: React.FC = () => {
     <Container>
       <Title>O QUE FAZEMOS</Title>
       <Images>
-      {img.map(img => (
-        <ImageContainer>
-        <img src={img.imagem.url} alt="bloco-b-app" />
-        <div>
-          <strong>{img.Titulo}</strong>
-          <span>{img.descricao}</span>
-        </div>
-      </ImageContainer>
+      {img.map((img, i) => (
+        <ImageContainer key={`${i}.${img.Titulo}`}>
+          <img src={img.imagem.url} alt="bloco-b-app" />
+          <div>
+            <strong>{img.Titulo}</strong>
+            <span>{img.descricao}</span>
+          </div>
+        </ImageContainer>
       ))}
       </Images>
     </Container>

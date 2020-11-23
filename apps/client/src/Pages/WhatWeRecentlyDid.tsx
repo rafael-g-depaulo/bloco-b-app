@@ -6,7 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 95px;
+  padding-bottom: 30px;
 `;
 
 const Title = styled.h1`
@@ -20,7 +20,8 @@ const Title = styled.h1`
 const Images = styled.div`
   display: grid; 
   grid-template-columns: repeat(3, 345px); 
-  grid-auto-rows: 336px; 
+  grid-auto-rows: 336px;
+  /* margin: auto; */
   gap: 15px;
 
   @media(max-width: 1199.98px){
@@ -41,7 +42,7 @@ const Images = styled.div`
   }
 
   @media(max-width: 640px){
-    grid-template-columns: repeat(1,415px);
+    grid-template-columns: repeat(1, minmax(90vw, 415px));
     grid-auto-rows: 336px;
   }
 

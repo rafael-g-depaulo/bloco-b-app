@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useFazemosItem } from "Api/QuemSomos"
 import Loading from "Components/Loading"
 import Markdown from 'Components/Markdown'
+// import Text from "Components/Text"
 
 const Container = styled.div`
   display: flex;
@@ -14,13 +15,13 @@ const Container = styled.div`
 const Row = styled.div`
   display: flex;
   width: 80%;
-  height: 180px;
+  /* height: 180px; */
   font-size: 18px;
-  margin-top: 20px;
+  margin: 15px 0;
 
   color: #000000;
 
-  @media(max-width: 1199.98px){
+  /* @media(max-width: 1199.98px){
     margin-bottom: 45px;
 
   }
@@ -36,8 +37,7 @@ const Row = styled.div`
 
   @media(max-width: 640px){
     margin-bottom: 150px;
-   
-  }
+  } */
 
   div {
     flex: 1;
@@ -52,7 +52,7 @@ const Title = styled.h1`
   line-height: 1.11;
   text-align: center;
   color: #000000;
-  margin-top: 95px;
+  margin-top: 25px;
 `;
 
 const Stripe = styled.div`
@@ -76,6 +76,13 @@ const Stripe = styled.div`
   }
 `;
 
+/* const TextWithColumns = styled(Text)` */
+const TextWithColumns = styled.div`
+  @media (min-width: 1200px) {
+    column-count: 3;
+  }
+`
+
 export const AboutUs: FC = () => {
   const { data, error, isLoading } = useFazemosItem()
 
@@ -90,20 +97,17 @@ export const AboutUs: FC = () => {
   const message = data!
 
   return (
-      <Container>
-        <Title>QUEM SOMOS</Title>
-        <Row>
-          <div>
-          <Markdown source={message.text.substring(0, 521)}/>
-          </div>
-          <div>
-          <Markdown source={message.text.substring(522, 859)}/>
-          </div>
-          </Row>
-        
-          <Stripe />
-      </Container>
-  
+    <Container>
+      <Title>QUEM SOMOS</Title>
+      <Row>
+        <div>
+        <TextWithColumns>
+          <Markdown source={message.text} />
+        </TextWithColumns>
+        </div>
+      </Row>
+      <Stripe />
+    </Container>
   )
 }
 

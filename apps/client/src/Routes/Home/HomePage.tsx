@@ -50,6 +50,7 @@ export const HomePage: FC = () => {
           <button type="button" onClick={() => handleScroll(contactRef)}>Contato</button>
         </Header>
       </div>
+
       <div ref={aboutUsRef}>
         <AboutUs />
       </div>

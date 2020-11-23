@@ -75,12 +75,6 @@ const Img = styled.img `
   object-fit: contain;
 `;
 
-//To remove
-  const Animation = styled.img`
-  width: 100%;
-  height: 600px;
-  /* margin-top: 50px; */
-`;
 
 export const Header: FC = ({ children }) => {
   
@@ -94,8 +88,6 @@ export const Header: FC = ({ children }) => {
           </nav>
         </HeaderContent>
       </Container>
-
-      <Animation src="https://wallpaperaccess.com/full/172092.jpg" />
     </>
   )
 }

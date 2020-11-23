@@ -18,10 +18,10 @@ export const Markdown: FC<MarkdownProps> = ({
     <ReactMarkdown
       source={source}
       renderers={{
-        ...renderers,
         paragraph: Text,
         link: Link,
         image: ImageMarkdown,
+        ...renderers,
       }}
     />
   )

@@ -5,7 +5,6 @@ import { Route, RouteComponentProps, Switch } from "react-router-dom"
 import { Router } from "Routes"
 
 const HomePage = lazy(() => import("./HomePage"))
-const ListItems = lazy(() => import("./ListItems"))
 
 export const Home: Router = ({
   match,
@@ -23,15 +22,7 @@ export const Home: Router = ({
           </Suspense>
         )}
       </Route>
-
-      {/* route to list things */}
-      <Route path={`${path}/:id`}>
-        {({ match }: RouteComponentProps<{ id: string }>) => (
-          <Suspense fallback={<Loading />}>
-            <ListItems id={match.params.id}/>
-          </Suspense>
-        )}
-      </Route>
+      
     </Switch>
   )
 }

@@ -6,7 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 30px;
+  padding: 60px 0 30px 0;
 `;
 
 const Title = styled.h1`
@@ -15,6 +15,7 @@ const Title = styled.h1`
   line-height: 1.11;
   text-align: center;
   color: #000000;
+  margin-bottom: 0;
 `;
 
 const Images = styled.div`

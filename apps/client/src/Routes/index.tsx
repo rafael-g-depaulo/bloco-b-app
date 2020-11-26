@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 
 import Loading from 'Components/Loading'
+import { showServicos } from 'FeatureFlags'
 
 const Home = lazy(() => import('./Home'))
 const Services = lazy(() => import('./Services'))
@@ -43,13 +44,15 @@ const Routes: FC = () => {
         </Route>
 
         {/* services router */}
-        <Route path={["/services", "/servicos", "/serviços"]}>
-          {({ match }) => (
-            <Suspense fallback={<Loading />}>
-              <Services match={match} />
-            </Suspense>
-          )}
-        </Route>
+        { showServicos && 
+          <Route path={["/services", "/servicos", "/serviços"]}>
+            {({ match }) => (
+              <Suspense fallback={<Loading />}>
+                <Services match={match} />
+              </Suspense>
+            )}
+          </Route>
+        }
 
       </Switch>
 

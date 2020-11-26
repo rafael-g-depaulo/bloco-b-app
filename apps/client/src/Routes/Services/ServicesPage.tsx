@@ -5,6 +5,7 @@ import Wireframe from "Components/Wireframe"
 import useDynamicScroll from "Hooks/useDynamicScroll"
 
 import Banner from "./Banner"
+import Content from "./Content"
 
 const Container = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ export const Services: FC = () => {
     >
       <Container>
         <Banner />
+        <Content />
       </Container>
     </Wireframe>
   )

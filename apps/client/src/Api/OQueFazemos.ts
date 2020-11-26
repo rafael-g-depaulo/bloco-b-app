@@ -1,25 +1,42 @@
 import { strapi } from "Api"
+
 import useFetchApi from 'Hooks/useFetchApi'
-import { Image } from "Utils/Image"
+
+import { Asset2Image, Image } from "Utils/Image"
+import StrapiAsset from "Utils/StrapiAsset"
 
 export interface Fazemos {
   Titulo: string,
-  descricao: string,
+  descricaoCurta: string,
+  descricaoLonga: string,
   imagem: Image,
 }
+
+// remove all other properties from object
+export const reduceToFazemos = ({
+  Titulo,
+  descricaoCurta,
+  descricaoLonga,
+  imagem,
+}: Fazemos): Fazemos => ({
+  Titulo,
+  descricaoCurta,
+  descricaoLonga,
+  imagem: Asset2Image(imagem as StrapiAsset),
+})
 
 export const fetchFazemosItem = (id: number) => strapi
   .get<Fazemos>(`/o-que-fazemos/${id}`)
   .then(({ data }) => data)
-  .then(({ Titulo, descricao, imagem }) => ({ Titulo, descricao, imagem }))
-
+  .then(reduceToFazemos)
+  
 export const useFazemosItem = (id: number) => useFetchApi<Fazemos>(`/o-que-fazemos`, () => fetchFazemosItem(id))
-
-export const fetchFazemosList = () => strapi
+  
+  export const fetchFazemosList = () => strapi
   .get<Fazemos[]>(`/o-que-fazemos`)
   .then(({ data }) => data)
   .then(fazemosList => fazemosList
-    .map(({ Titulo, descricao, imagem }) => ({ Titulo, descricao, imagem }))
+    .map(reduceToFazemos)
   )
 
 export const useFazemosList = () => useFetchApi<Fazemos[]>(`/o-que-fazemos`, fetchFazemosList)

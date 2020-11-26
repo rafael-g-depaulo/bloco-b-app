@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "o_que_fazemos",
   "info": {
-    "name": "O Que Fazemos"
+    "name": "O Que Fazemos",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -14,7 +15,7 @@
       "type": "string",
       "required": true
     },
-    "descricao": {
+    "descricaoCurta": {
       "type": "string",
       "required": true
     },
@@ -26,6 +27,9 @@
       ],
       "plugin": "upload",
       "required": true
+    },
+    "descricaoLonga": {
+      "type": "richtext"
     }
   }
 }

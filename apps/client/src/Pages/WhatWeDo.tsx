@@ -132,7 +132,7 @@ const WhatWeDo: React.FC = () => {
           <img src={img.imagem.url} alt="bloco-b-app" />
           <div>
             <strong>{img.Titulo}</strong>
-            <span>{img.descricao}</span>
+            <span>{img.descricaoCurta}</span>
           </div>
         </ImageContainer>
       ))}

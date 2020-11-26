@@ -1,7 +1,15 @@
 import React, { FC } from "react"
+import styled from "styled-components"
 
 import Wireframe from "Components/Wireframe"
 import useDynamicScroll from "Hooks/useDynamicScroll"
+
+import Banner from "./Banner"
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export const Services: FC = () => {
 
@@ -15,7 +23,9 @@ export const Services: FC = () => {
       onClickSomos={() => {}}
       onClickUltimosAnos={() => {}}
     >
-      asdssss
+      <Container>
+        <Banner />
+      </Container>
     </Wireframe>
   )
 }

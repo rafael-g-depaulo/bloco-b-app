@@ -7,6 +7,7 @@ import defaultTheme from "./default"
 
 export interface Theme {
   fontSize: string,
+  fontSizeHuge: string,
 }
 
 declare module "styled-components" {

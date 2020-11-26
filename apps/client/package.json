@@ -1,6 +1,6 @@
 {
   "name": "@bloco-b/client",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "license": "MIT",
   "dependencies": {
     "@bloco-b/server-conn-info": "^4.1.0",

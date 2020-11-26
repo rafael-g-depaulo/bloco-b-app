@@ -188,7 +188,7 @@ const BottomSideContent = styled.div`
 
   > nav {
 
-    > button {
+    button {
       font-size: 18px;
       cursor: pointer;
       border: 0;

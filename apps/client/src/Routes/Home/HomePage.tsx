@@ -1,4 +1,4 @@
-import React, { FC, RefObject, useRef } from "react"
+import React, { FC, RefObject, useEffect, useRef } from "react"
 import styled from 'styled-components';
 // import Header from 'Components/Header/Header'
 import AboutUs from 'Pages/AboutUs'
@@ -7,6 +7,7 @@ import WhatWeRecentlyDo from 'Pages/WhatWeRecentlyDid'
 // import Footer from 'Components/Footer/Footer'
 import { showOQueFazemos, showQuemSomos, showUltimosAnos } from "FeatureFlags";
 import Wireframe from "Components/Wireframe";
+import { useHistory, useLocation } from "react-router-dom";
 
 
 const ImgContainer = styled.div`
@@ -38,17 +39,27 @@ export const HomePage: FC = () => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  // handle scroll
+  const history = useHistory()
+  const { hash } = history.location
+  useEffect(() => {
+    const element = hash !== "" && document.querySelector(hash)
+    if (element) {
+      setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 800)
+    }
+  }, [hash])
+
   return (
     <Wireframe
-      onClickSomos={() => handleScroll(aboutUsRef)}
-      onClickServicos={() => handleScroll(whatWeDoRef)}
-      onClickUltimosAnos={() => handleScroll(whatWeRecentlyDidRef)}
+      onClickSomos={() => history.location.pathname === "/" && hash === "#sobre-nos" && handleScroll(aboutUsRef)}
+      onClickServicos={() => history.location.pathname === "/" && hash === "#o-que-fazemos" && handleScroll(whatWeDoRef)}
+      onClickUltimosAnos={() => history.location.pathname === "/" && hash === "#fizemos-recentemente" && handleScroll(whatWeRecentlyDidRef)}
     >
 
       {/* SESSÃO DE QUEM SOMOS */}
       { showQuemSomos &&
       <>
-          <div ref={aboutUsRef}>
+          <div ref={aboutUsRef} id="sobre-nos">
             <AboutUs />
           </div>
         </>
@@ -60,7 +71,7 @@ export const HomePage: FC = () => {
           <ImgContainer>
             <img src="https://d12dkjq56sjcos.cloudfront.net/pub/media/magefan_blog/l/o/louvre-museum-paris-big-bus-tours-jan-2017.jpg" alt=""/>
           </ImgContainer>
-          <div ref={whatWeDoRef}>
+          <div ref={whatWeDoRef} id="o-que-fazemos" >
             <WhatWeDo />
           </div>
         </>
@@ -72,7 +83,7 @@ export const HomePage: FC = () => {
           <ImgContainer>
             <img src="https://tul.imgix.net/content/article/things-to-do-queenstown-1.jpg?auto=format,compress&w=1200&h=630&fit=crop" alt="Queenstown" />
           </ImgContainer>
-          <div ref={whatWeRecentlyDidRef}>
+          <div ref={whatWeRecentlyDidRef} id="fizemos-recentemente" >
             <WhatWeRecentlyDo />
           </div>
         </>

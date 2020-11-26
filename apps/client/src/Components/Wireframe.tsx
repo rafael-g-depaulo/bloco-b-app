@@ -4,6 +4,8 @@ import Footer from "Components/Footer/Footer"
 import Header from "Components/Header/Header"
 
 import styled from "styled-components"
+import Link from "Components/EmptyLink"
+import NavItem from "./Header/NavItem"
 
 const Content = styled.main`
   flex-grow: 1;
@@ -44,11 +46,11 @@ export const Wireframe: FC<WireframeProps> = ({
       {/* header */}
       <div ref={homeRef}>
         <Header>
-          <button type="button" onClick={onClickHome ?? defaultOnClickHome}>Home</button>
-          { showQuemSomos && <button type="button" onClick={onClickSomos}>Quem Somos</button> }
-          { showOQueFazemos && <button type="button" onClick={onClickServicos}>Serviços</button> }
-          { showUltimosAnos && <button type="button" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</button> }
-          <button type="button" onClick={onClickContato ?? defaultOnClickContato}>Contato</button>
+          <NavItem to="/" onClick={onClickHome ?? defaultOnClickHome}>Home</NavItem>
+          { showQuemSomos   && <NavItem to="/#sobre-nos" onClick={onClickSomos}>Quem Somos</NavItem> }
+          { showOQueFazemos && <NavItem to="/services" onClick={onClickServicos}>Serviços</NavItem> }
+          { showUltimosAnos && <NavItem to="/#fizemos-recentemente" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</NavItem> }
+          <NavItem to="/#contato" onClick={onClickContato ?? defaultOnClickContato}>Contato</NavItem>
         </Header>
       </div>
 
@@ -59,13 +61,13 @@ export const Wireframe: FC<WireframeProps> = ({
       </Content>
       
       {/* footer */}
-      <div ref={contactRef}>
+      <div ref={contactRef} id="contato">
         <Footer>
-          <button type="button" onClick={onClickHome ?? defaultOnClickHome}>Home</button>
-          { showQuemSomos && <button type="button" onClick={onClickSomos}>Quem Somos</button> }
-          { showOQueFazemos && <button type="button" onClick={onClickServicos}>Serviços</button> }
-          { showUltimosAnos && <button type="button" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</button> }
-          <button type="button" onClick={onClickContato ?? defaultOnClickContato}>Contato</button>
+          <NavItem to="/" onClick={onClickHome ?? defaultOnClickHome}>Home</NavItem>
+          { showQuemSomos   && <NavItem to="/#sobre-nos" onClick={onClickSomos}>Quem Somos</NavItem> }
+          { showOQueFazemos && <NavItem to="/services" onClick={onClickServicos}>Serviços</NavItem> }
+          { showUltimosAnos && <NavItem to="/#fizemos-recentemente" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</NavItem> }
+          <NavItem to="/#contato" onClick={onClickContato ?? defaultOnClickContato}>Contato</NavItem>
         </Footer>
       </div>
     </Container>

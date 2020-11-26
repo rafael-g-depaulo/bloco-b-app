@@ -29,7 +29,7 @@ const HeaderContent = styled.div`
 
   > nav {
     /* margin-top: 65px; */
-      > button {
+      button {
         cursor: pointer;
         border: 0;
         background: transparent;

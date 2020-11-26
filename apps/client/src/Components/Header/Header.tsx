@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import logo from '../Header/logo-bloco-b.png'
 
@@ -82,7 +83,9 @@ export const Header: FC = ({ children }) => {
     <>
       <Container>
         <HeaderContent>
-          <Img src={logo} alt="Bloco B Logo" />
+          <Link to="/">
+            <Img src={logo} alt="Bloco B Logo" />
+          </Link>
           <nav>
             {children}
           </nav>

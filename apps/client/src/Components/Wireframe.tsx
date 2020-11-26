@@ -3,6 +3,19 @@ import React, { FC, RefObject, useRef } from "react"
 import Footer from "Components/Footer/Footer"
 import Header from "Components/Header/Header"
 
+import styled from "styled-components"
+
+const Content = styled.main`
+  flex-grow: 1;
+`
+
+const Container = styled.div`
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+
 export interface WireframeProps {
   onClickHome?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
   onClickSomos: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
@@ -26,7 +39,7 @@ export const Wireframe: FC<WireframeProps> = ({
   const defaultOnClickContato = () => handleScroll(contactRef)
   const defaultOnClickHome = () => handleScroll(homeRef)
   return (
-    <div>
+    <Container>
       
       {/* header */}
       <div ref={homeRef}>
@@ -41,7 +54,9 @@ export const Wireframe: FC<WireframeProps> = ({
 
 
       {/* body of the page */}
-      {children}
+      <Content>
+        {children}
+      </Content>
       
       {/* footer */}
       <div ref={contactRef}>
@@ -53,7 +68,7 @@ export const Wireframe: FC<WireframeProps> = ({
           <button type="button" onClick={onClickContato ?? defaultOnClickContato}>Contato</button>
         </Footer>
       </div>
-    </div>
+    </Container>
   )
 }
 

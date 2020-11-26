@@ -9,6 +9,7 @@ import {
 import Loading from 'Components/Loading'
 
 const Home = lazy(() => import('./Home'))
+const Services = lazy(() => import('./Services'))
 
 export type RouterProps<MatchParams = {}> = {
   history?: History,
@@ -25,11 +26,11 @@ const Routes: FC = () => {
         
         {/* default route */}
         <Route exact path="/">
-            {({ match }) => (
-              <Suspense fallback={<Loading />}>
-                <Home match={match}/>
-              </Suspense> 
-            )}
+          {({ match }) => (
+            <Suspense fallback={<Loading />}>
+              <Home match={match}/>
+            </Suspense> 
+          )}
         </Route>
         
         {/* home router */}
@@ -38,6 +39,15 @@ const Routes: FC = () => {
             <Suspense fallback={<Loading />}>
               <Home match={match}/>
             </Suspense> 
+          )}
+        </Route>
+
+        {/* services router */}
+        <Route path={["/services", "/servicos", "/serviços"]}>
+          {({ match }) => (
+            <Suspense fallback={<Loading />}>
+              <Services match={match} />
+            </Suspense>
           )}
         </Route>
 

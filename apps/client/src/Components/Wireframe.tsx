@@ -4,8 +4,7 @@ import Footer from "Components/Footer/Footer"
 import Header from "Components/Header/Header"
 
 import styled from "styled-components"
-import Link from "Components/EmptyLink"
-import NavItem from "./Header/NavItem"
+import NavItem from "Components/Header/NavItem"
 
 const Content = styled.main`
   flex-grow: 1;

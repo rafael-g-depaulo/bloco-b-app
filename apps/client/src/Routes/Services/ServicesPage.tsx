@@ -1,17 +1,17 @@
 import React, { FC } from "react"
 
 import Wireframe from "Components/Wireframe"
+import useDynamicScroll from "Hooks/useDynamicScroll"
 
-export interface ServicesProps {
-  
-}
+export const Services: FC = () => {
 
-export const Services: FC<ServicesProps> = ({
+  useDynamicScroll()
 
-}) => {
   return (
     <Wireframe
-      onClickServicos={() => {}}
+      onClickServicos={() => {
+        document.querySelector("#root")?.scrollIntoView({ behavior: "smooth" })
+      }}
       onClickSomos={() => {}}
       onClickUltimosAnos={() => {}}
     >

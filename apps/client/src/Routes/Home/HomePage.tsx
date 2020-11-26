@@ -1,14 +1,15 @@
-import React, { FC, RefObject, useEffect, useRef } from "react"
-import styled from 'styled-components';
-// import Header from 'Components/Header/Header'
+import React, { FC, RefObject, useRef } from "react"
+import { useHistory } from "react-router-dom";
+import styled from 'styled-components'
+
+import { showOQueFazemos, showQuemSomos, showUltimosAnos } from "FeatureFlags";
+
 import AboutUs from 'Pages/AboutUs'
 import WhatWeDo from 'Pages/WhatWeDo'
 import WhatWeRecentlyDo from 'Pages/WhatWeRecentlyDid'
-// import Footer from 'Components/Footer/Footer'
-import { showOQueFazemos, showQuemSomos, showUltimosAnos } from "FeatureFlags";
-import Wireframe from "Components/Wireframe";
-import { useHistory, useLocation } from "react-router-dom";
 
+import Wireframe from "Components/Wireframe"
+import useDynamicScroll from "Hooks/useDynamicScroll"
 
 const ImgContainer = styled.div`
 width: 100%;
@@ -42,12 +43,7 @@ export const HomePage: FC = () => {
   // handle scroll
   const history = useHistory()
   const { hash } = history.location
-  useEffect(() => {
-    const element = hash !== "" && document.querySelector(hash)
-    if (element) {
-      setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 800)
-    }
-  }, [hash])
+  useDynamicScroll()
 
   return (
     <Wireframe

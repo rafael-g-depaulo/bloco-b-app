@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom"
 import { getLowestElementOverTop } from "Utils/getLowestElementOverTop"
 import useDynamicScroll from "Hooks/useDynamicScroll"
 import useRefs from "Hooks/useRefs"
+import useCurrentlyScrolledElement from "Hooks/useCurrentlyScrolledElement"
 
 const List = styled.div`
   display: flex;
@@ -40,13 +41,9 @@ export const Content: FC = () => {
   const elRefs = useRefs(data?.length)
   
   // set current scrolled-out element
-  const [currentArticle, setCurrentArticle] = useState("")
-  useScrollPosition(() => {
-    const element = getLowestElementOverTop(elRefs)
-    if (!element) setCurrentArticle("")
-    else setCurrentArticle(element.id ?? "")
-  }, { wait: 200 })
-
+  const currentArticle = useCurrentlyScrolledElement(elRefs, { wait: 200 })
+  const curArticleId = currentArticle?.id ?? ""
+  
   // stop path replacer for the first second, while page loads and scrolls into correct initial section
   const history = useHistory()
   const [hasScrolledLoad, setHasScrolled] = useState(false)
@@ -55,13 +52,14 @@ export const Content: FC = () => {
     return () => clearTimeout(handle)
   }, [])
 
+  // update path when current scrolled article changes
   useEffect(() => {
     if (hasScrolledLoad) {
       console.log("changing shit")
-      if (currentArticle === "") history.replace(`${history.location.pathname}`)
-      else history.replace(`${history.location.pathname}#${currentArticle}`)
+      if (curArticleId === "") history.replace(`${history.location.pathname}`)
+      else history.replace(`${history.location.pathname}#${curArticleId}`)
     }
-  }, [currentArticle, history])
+  }, [curArticleId, history])
 
   useDynamicScroll(750)
 

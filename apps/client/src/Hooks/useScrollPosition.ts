@@ -22,7 +22,7 @@ interface ScrollEffect {
   (props: { prevPos?: Position, currPos?: Position }): void
 }
 
-interface Options {
+export interface Options {
   element?: MutableRefObject<null>,
   wait?: number,
   useWindow?: boolean,
@@ -65,3 +65,5 @@ export const useScrollPosition = (effect: ScrollEffect, { element, wait, useWind
 }
 
 // code taken partly from https://dev.to/n8tb1t/tracking-scroll-position-with-react-hooks-3bbj
+
+export default useScrollPosition

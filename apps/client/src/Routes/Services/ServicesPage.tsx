@@ -14,7 +14,7 @@ const Container = styled.div`
 
 export const Services: FC = () => {
 
-  useDynamicScroll()
+  // useDynamicScroll()
 
   return (
     <Wireframe

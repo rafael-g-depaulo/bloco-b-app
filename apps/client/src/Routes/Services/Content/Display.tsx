@@ -27,9 +27,9 @@ export const Display: FC<DisplayProps> = ({
 }) => {
   return (
     <List>
-      {servicos.map(({ descricaoLonga, Titulo, id }, i) => (
+      {servicos.map(({ descricaoLonga, Titulo, NomeID }, i) => (
         <Fragment key={i}>
-          <article ref={serviceEleRefs[i]} id={`service-${id}`}>
+          <article ref={serviceEleRefs[i]} id={`${NomeID}`}>
             <Markdown source={descricaoLonga}/>
             { Titulo }
           </article>

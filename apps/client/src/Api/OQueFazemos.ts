@@ -10,7 +10,7 @@ export interface Fazemos {
   descricaoCurta: string,
   descricaoLonga: string,
   imagem: Image,
-  id: number,
+  NomeID: string,
 }
 
 // remove all other properties from object
@@ -19,11 +19,9 @@ export const reduceToFazemos = ({
   descricaoCurta,
   descricaoLonga,
   imagem,
-  id,
-  ...a
+  NomeID,
 }: Fazemos): Fazemos => ({
-  ...a,
-  id,
+  NomeID,
   Titulo,
   descricaoCurta,
   descricaoLonga,

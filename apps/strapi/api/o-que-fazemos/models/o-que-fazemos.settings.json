@@ -30,6 +30,11 @@
     },
     "descricaoLonga": {
       "type": "richtext"
+    },
+    "NomeID": {
+      "type": "string",
+      "required": true,
+      "regex": "^[A-Za-z]+[\\w\\-\\:\\.]*"
     }
   }
 }

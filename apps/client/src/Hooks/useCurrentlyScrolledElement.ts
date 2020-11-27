@@ -1,6 +1,10 @@
 import { RefObject, useState } from "react"
-import useScrollPosition, { Options } from "Hooks/useScrollPosition"
+import useScrollPosition, { Options as ScrollOptions } from "Hooks/useScrollPosition"
 import { getLowestElementOverTop } from "Utils/getLowestElementOverTop"
+
+interface Options extends ScrollOptions {
+  margin?: number,
+}
 
 // hook to select from a list of elements which one, if any,
 // has the top of it's containing rectangle above the top of the
@@ -13,7 +17,7 @@ export default (refs: RefObject<HTMLElement>[], opt: Options) => {
 
   // on scroll, check if current scrolled element has changed
   useScrollPosition(() => {
-    const element = getLowestElementOverTop(refs)
+    const element = getLowestElementOverTop(refs, opt.margin)
     setCurrentScrolled(element)
   }, opt)
 

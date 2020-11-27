@@ -12,14 +12,11 @@ export default (wait: number) => {
   useEffect(() => {
     // make sure that the wait can't be started twice
     if (!startedWait) {
-      setStartedWait(true)
-      
+      setStartedWait(true) 
       // wait then change the timer
-      const handle = setTimeout(() => setHasWaited(true), wait)
-      return () => clearTimeout(handle)
+      setTimeout(() => setHasWaited(true), wait)
     }
-    return () => {}
-  }, [wait])
+  }, [wait, startedWait])
 
   // return wether the time has passed or not
   return hasWaited

@@ -11,6 +11,7 @@ import useDynamicScroll from "Hooks/useDynamicScroll"
 import useRefs from "Hooks/useRefs"
 import useCurrentlyScrolledElement from "Hooks/useCurrentlyScrolledElement"
 import useMsPassed from "Hooks/useMsPassed"
+import useUrlHash from "Hooks/useUrlHash"
 
 const List = styled.div`
   display: flex;
@@ -42,21 +43,15 @@ export const Content: FC = () => {
   const elRefs = useRefs(data?.length)
   
   // set current scrolled-out element
-  const currentArticle = useCurrentlyScrolledElement(elRefs, { wait: 200 })
+  const currentArticle = useCurrentlyScrolledElement(elRefs, { wait: 200, margin: 5 })
   const curArticleId = currentArticle?.id ?? ""
 
   // stop path replacer for the first second, while page loads and scrolls into correct initial section
   const hasScrolledLoad = useMsPassed(1000)
-    
+  console.log(hasScrolledLoad)
+
   // update path when current scrolled article changes
-  const history = useHistory()
-  useEffect(() => {
-    if (hasScrolledLoad) {
-      console.log("changing shit")
-      if (curArticleId === "") history.replace(`${history.location.pathname}`)
-      else history.replace(`${history.location.pathname}#${curArticleId}`)
-    }
-  }, [curArticleId, history])
+  useUrlHash(curArticleId, { disable: !hasScrolledLoad })
 
   useDynamicScroll(750)
 
@@ -67,7 +62,6 @@ export const Content: FC = () => {
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       {data.map(({ descricaoLonga, Titulo, id }, i) => (
         <Fragment key={i}>
-          {/* <article ref={elRefs[i]} id={Titulo.replaceAll(" ", "-")}> */}
           <article ref={elRefs[i]} id={`service-${id}`}>
             <Markdown source={descricaoLonga}/>
             { Titulo }

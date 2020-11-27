@@ -8,6 +8,7 @@ import { useScrollPosition } from "Hooks/useScrollPosition"
 import { useHistory } from "react-router-dom"
 import { getLowestElementOverTop } from "Utils/getLowestElementOverTop"
 import useDynamicScroll from "Hooks/useDynamicScroll"
+import useRefs from "Hooks/useRefs"
 
 const List = styled.div`
   display: flex;
@@ -34,35 +35,26 @@ const Hr = styled.hr`
 export const Content: FC = () => {
   const servicesList = useFazemosList()
   const { data } = servicesList
-  // console.log(data)
 
   // create refs for all articles
-  const [elRefs, setElRefs] = useState<RefObject<HTMLElement>[]>([])
-  const articleLength = data?.length  
-  useEffect(() => {
-    // add or remove refs
-    setElRefs(elRefs => Array(articleLength)
-      .fill(null)
-      .map((_, i) => elRefs[i] || createRef())
-    )
-  }, [articleLength])
-
+  const elRefs = useRefs(data?.length)
+  
+  // set current scrolled-out element
   const [currentArticle, setCurrentArticle] = useState("")
-
   useScrollPosition(() => {
     const element = getLowestElementOverTop(elRefs)
     if (!element) setCurrentArticle("")
-    // else setCurrentArticle(element.getElementsByTagName("h3")[0].innerText.split(" ")[0] ?? "")
     else setCurrentArticle(element.id ?? "")
-
   }, { wait: 200 })
 
+  // stop path replacer for the first second, while page loads and scrolls into correct initial section
   const history = useHistory()
   const [hasScrolledLoad, setHasScrolled] = useState(false)
   useEffect(() => {
-    const handle = setTimeout(() => setHasScrolled(true), 2000)
+    const handle = setTimeout(() => setHasScrolled(true), 1000)
     return () => clearTimeout(handle)
   }, [])
+
   useEffect(() => {
     if (hasScrolledLoad) {
       console.log("changing shit")

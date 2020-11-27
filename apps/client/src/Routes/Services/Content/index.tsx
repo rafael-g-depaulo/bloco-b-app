@@ -10,6 +10,7 @@ import { getLowestElementOverTop } from "Utils/getLowestElementOverTop"
 import useDynamicScroll from "Hooks/useDynamicScroll"
 import useRefs from "Hooks/useRefs"
 import useCurrentlyScrolledElement from "Hooks/useCurrentlyScrolledElement"
+import useMsPassed from "Hooks/useMsPassed"
 
 const List = styled.div`
   display: flex;
@@ -43,16 +44,12 @@ export const Content: FC = () => {
   // set current scrolled-out element
   const currentArticle = useCurrentlyScrolledElement(elRefs, { wait: 200 })
   const curArticleId = currentArticle?.id ?? ""
-  
-  // stop path replacer for the first second, while page loads and scrolls into correct initial section
-  const history = useHistory()
-  const [hasScrolledLoad, setHasScrolled] = useState(false)
-  useEffect(() => {
-    const handle = setTimeout(() => setHasScrolled(true), 1000)
-    return () => clearTimeout(handle)
-  }, [])
 
+  // stop path replacer for the first second, while page loads and scrolls into correct initial section
+  const hasScrolledLoad = useMsPassed(1000)
+    
   // update path when current scrolled article changes
+  const history = useHistory()
   useEffect(() => {
     if (hasScrolledLoad) {
       console.log("changing shit")

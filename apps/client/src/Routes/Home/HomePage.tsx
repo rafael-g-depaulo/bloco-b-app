@@ -1,15 +1,16 @@
 import React, { FC, RefObject, useRef } from "react"
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 import styled from 'styled-components'
 
-import { showOQueFazemos, showQuemSomos, showUltimosAnos } from "FeatureFlags";
+import { showOQueFazemos, showQuemSomos, showUltimosAnos } from "FeatureFlags"
 
 import AboutUs from 'Pages/AboutUs'
 import WhatWeDo from 'Pages/WhatWeDo'
 import WhatWeRecentlyDo from 'Pages/WhatWeRecentlyDid'
 
 import Wireframe from "Components/Wireframe"
-import useDynamicScroll from "Hooks/useDynamicScroll"
+
+import useHashUrlScroll from "Hooks/useHashUrlScroll"
 
 const ImgContainer = styled.div`
 width: 100%;
@@ -35,15 +36,22 @@ export const HomePage: FC = () => {
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const whatWeDoRef = useRef<HTMLDivElement>(null);
   const whatWeRecentlyDidRef = useRef<HTMLDivElement>(null);
+  const eleRefs = [
+    aboutUsRef,
+    whatWeDoRef,
+    whatWeRecentlyDidRef,
+  ]
 
   function handleScroll(ref: RefObject<HTMLDivElement>) {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   }
-
-  // handle scroll
+  
+  // history (for links)
   const history = useHistory()
   const { hash } = history.location
-  useDynamicScroll()
+
+  // handle dynamic scroll
+  useHashUrlScroll(eleRefs)
 
   return (
     <Wireframe

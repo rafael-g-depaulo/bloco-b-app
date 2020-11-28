@@ -33,7 +33,7 @@ export const fetchFazemosItem = (id: number) => strapi
   .then(({ data }) => data)
   .then(reduceToFazemos)
   
-export const useFazemosItem = (id: number) => useFetchApi<Fazemos>(`/o-que-fazemos`, () => fetchFazemosItem(id))
+export const useFazemosItem = (id: number) => useFetchApi<Fazemos>(`/o-que-fazemos/${id}`, () => fetchFazemosItem(id))
   
 export const fetchFazemosList = () => strapi
   .get<Fazemos[]>(`/o-que-fazemos`)

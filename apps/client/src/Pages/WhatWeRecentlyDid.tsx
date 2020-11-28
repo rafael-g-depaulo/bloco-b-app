@@ -1,5 +1,8 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
+
+import { useProjetos } from "Api/Projetos"
+import Loading from 'Components/Loading';
 
 const Container = styled.div`
   display: flex;
@@ -59,21 +62,33 @@ const ImageContainer = styled.div`
   margin-top: 55px;
   background-color: #000;
   
-  /* cursor: pointer; */
+  cursor: pointer;
 `;
 
+const Image = styled.img`
+  object-fit: cover;
+  object-position: center center;
+  width: 90%;
+  height: 90%;
+`
+
 const WhatWeRecentlyDid: React.FC = () => {
+  const { data } = useProjetos()
+
+  if (!data || data.length === 0) return <Container><Loading /></Container>
+
   return (
     <Container>
       <Title>O QUE FIZEMOS NOS ÚLTIMOS ANOS</Title>
       <Images>
-        <ImageContainer />
-        <ImageContainer />
-        <ImageContainer />
-
-        <ImageContainer />
-        <ImageContainer />
-        <ImageContainer />
+        {data.map(({ Logo, id }) => (
+          <ImageContainer key={id}>
+            <Image
+              src={Logo.url}
+              alt={Logo.alternativeText}
+            />
+          </ImageContainer>
+        ))}
       </Images>
     </Container>
   );

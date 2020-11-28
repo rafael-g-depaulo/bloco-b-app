@@ -6,18 +6,22 @@ import { Asset2Image, Image } from "Utils/Image"
 import StrapiAsset from "Utils/StrapiAsset"
 
 interface StrapiProjeto {
-  Logo: StrapiAsset
+  Logo: StrapiAsset,
+  id: number,
 }
 
 export interface Projeto {
-  Logo: Image
+  Logo: Image,
+  id: number,
 }
 
 // transform object into format used by client app
 export const transformProjeto = ({
   Logo,
+  id,
 }: StrapiProjeto) => ({
-  Logo: Asset2Image(Logo)
+  Logo: Asset2Image(Logo),
+  id,
 }) as Projeto
 
 export const fetchProjeto = (id: number) => strapi
@@ -25,11 +29,11 @@ export const fetchProjeto = (id: number) => strapi
   .then(({ data }) => data)
   .then(transformProjeto)
 
-export const useProjeto = (id: number) => useFetchApi(`/o-que-fazemos`, () => fetchProjeto(id))
+export const useProjeto = (id: number) => useFetchApi(`/projetos/${id}`, () => fetchProjeto(id))
 
 export const fetchFazemosList = () => strapi
-  .get<StrapiProjeto[]>(`/o-que-fazemos`)
+  .get<StrapiProjeto[]>(`/projetos`)
   .then(({ data }) => data)
   .then(fazemosList => fazemosList.map(transformProjeto))
 
-export const useProjetos = () => useFetchApi(`/o-que-fazemos`, fetchFazemosList)
+export const useProjetos = () => useFetchApi(`/projetos`, fetchFazemosList)

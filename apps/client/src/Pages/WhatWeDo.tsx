@@ -153,8 +153,8 @@ const WhatWeDo: React.FC = () => {
       <Title>O QUE FAZEMOS</Title>
       <Images>
       {img.map((img, i) => (
-        <MyLink to={`/services#${img.NomeID}`}>
-          <ImageContainer key={`${i}.${img.Titulo}`}>
+        <MyLink to={`/services#${img.NomeID}`} key={`${i}.${img.Titulo}`}>
+          <ImageContainer>
             <img src={img.imagem.url} alt="bloco-b-app" />
             <div>
               <strong>{img.Titulo}</strong>

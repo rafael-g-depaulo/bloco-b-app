@@ -35,7 +35,7 @@ export const fetchFazemosItem = (id: number) => strapi
   
 export const useFazemosItem = (id: number) => useFetchApi<Fazemos>(`/o-que-fazemos`, () => fetchFazemosItem(id))
   
-  export const fetchFazemosList = () => strapi
+export const fetchFazemosList = () => strapi
   .get<Fazemos[]>(`/o-que-fazemos`)
   .then(({ data }) => data)
   .then(fazemosList => fazemosList

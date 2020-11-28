@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { useFazemosList } from "Api/OQueFazemos"
 import Loading from "Components/Loading"
+import Link from 'Components/EmptyLink'
 
 const Container = styled.div`
   display: flex;
@@ -98,16 +99,18 @@ const ImageContainer = styled.div`
     }
   }
 
-  & + div {
-    margin-left: 8px;
-  }
-
   &:hover {
     > img {
       transform: scale(1.2);
     }
   }
 `;
+
+const MyLink = styled(Link)`
+  & + * {
+    margin-left: 8px;
+  }
+`
 
 const WhatWeDo: React.FC = () => {
   
@@ -119,22 +122,25 @@ const WhatWeDo: React.FC = () => {
   // if there were any errors
   if (error) return <div>error: { error?.message ?? "" }</div>
 
-
   // if reached here, we know that data is loaded and there is no error
   const img = data!
+
+  if (img.length === 0) return <div></div>
 
   return (
     <Container>
       <Title>O QUE FAZEMOS</Title>
       <Images>
       {img.map((img, i) => (
-        <ImageContainer key={`${i}.${img.Titulo}`}>
-          <img src={img.imagem.url} alt="bloco-b-app" />
-          <div>
-            <strong>{img.Titulo}</strong>
-            <span>{img.descricaoCurta}</span>
-          </div>
-        </ImageContainer>
+        <MyLink to={`/services#${img.NomeID}`}>
+          <ImageContainer key={`${i}.${img.Titulo}`}>
+            <img src={img.imagem.url} alt="bloco-b-app" />
+            <div>
+              <strong>{img.Titulo}</strong>
+              <span>{img.descricaoCurta}</span>
+            </div>
+          </ImageContainer>
+        </MyLink>
       ))}
       </Images>
     </Container>

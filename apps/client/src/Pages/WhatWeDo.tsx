@@ -9,7 +9,13 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  margin: auto;
+
   padding: 95px;
+  @media (max-width: 540px){
+    padding: 5%;
+  }
 `;
 
 const Title = styled.h1`
@@ -22,6 +28,23 @@ const Title = styled.h1`
 
 const Images = styled.div`
   display: flex;
+  justify-content: space-around;
+
+  padding-top: 35px;
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+
+  > * {
+    margin-left: 0.8em;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    > * {
+      margin: 0.8em auto;
+    }
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -33,7 +56,7 @@ const ImageContainer = styled.div`
 
   width: 265px;
   height: 253px;
-  margin-top: 55px;
+  margin: auto;
   background-color: rgba(115, 44, 44, 0.72);
   
   cursor: pointer;
@@ -41,23 +64,20 @@ const ImageContainer = styled.div`
 
   @media(max-width: 1199.98px){
     width: 252px;
-    height: 253px;
   }
 
   @media(max-width: 992px){
     width: 245px;
-    height: 253px;
-
   }
 
-  @media(max-width: 767.98px){
+  @media(max-width: 790px){
     width: 210px;
-    height: 253px; 
+    /* max-width: 75%; */
   }
 
-  @media(max-width: 640px){
-    width: 150px;
-    height: 253px;
+  @media(max-width: 700px){
+    width: 75%;
+    min-width: 245px;
   }
 
   > img {
@@ -101,15 +121,16 @@ const ImageContainer = styled.div`
 
   &:hover {
     > img {
-      transform: scale(1.2);
+      transform: scale(1.15);
     }
   }
 `;
 
 const MyLink = styled(Link)`
-  & + * {
+  /* & + * {
     margin-left: 8px;
-  }
+  } */
+  width: auto;
 `
 
 const WhatWeDo: React.FC = () => {

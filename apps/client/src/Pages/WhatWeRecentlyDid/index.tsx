@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { useProjetos } from "Api/Projetos"
 import Loading from 'Components/Loading';
+import Projeto from './Projeto';
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ const Images = styled.div`
   display: grid; 
   grid-template-columns: repeat(3, 345px); 
   grid-auto-rows: 336px;
-  /* margin: auto; */
+  padding-top: 40px;
   gap: 15px;
 
   @media(max-width: 1199.98px){
@@ -52,26 +53,6 @@ const Images = styled.div`
 
 `;
 
-const ImageContainer = styled.div`
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 55px;
-  background-color: #000;
-  
-  cursor: pointer;
-`;
-
-const Image = styled.img`
-  object-fit: cover;
-  object-position: center center;
-  width: 90%;
-  height: 90%;
-`
-
 const WhatWeRecentlyDid: React.FC = () => {
   const { data } = useProjetos()
 
@@ -81,13 +62,8 @@ const WhatWeRecentlyDid: React.FC = () => {
     <Container>
       <Title>O QUE FIZEMOS NOS ÚLTIMOS ANOS</Title>
       <Images>
-        {data.map(({ Logo, id }) => (
-          <ImageContainer key={id}>
-            <Image
-              src={Logo.url}
-              alt={Logo.alternativeText}
-            />
-          </ImageContainer>
+        {data.map(({ Logo, id, Texto }) => (
+          <Projeto key={id} Logo={Logo} text={Texto} />
         ))}
       </Images>
     </Container>

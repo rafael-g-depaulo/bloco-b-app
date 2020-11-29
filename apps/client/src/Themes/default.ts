@@ -1,7 +1,7 @@
 import { Theme } from "Themes"
 
 export const defaultTheme: Theme = {
-  fontSize: "14px",
+  fontSize: "16px",
   fontSizeHuge: "50px",
 }
 

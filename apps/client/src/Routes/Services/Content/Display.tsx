@@ -27,11 +27,10 @@ export const Display: FC<DisplayProps> = ({
 }) => {
   return (
     <List>
-      {servicos.map(({ descricaoLonga, Titulo, NomeID }, i) => (
+      {servicos.map(({ descricaoLonga, NomeID }, i) => (
         <Fragment key={i}>
           <article ref={serviceEleRefs[i]} id={`${NomeID}`}>
             <Markdown source={descricaoLonga}/>
-            { Titulo }
           </article>
           { i !== servicos.length-1 && <Hr />}
         </Fragment>

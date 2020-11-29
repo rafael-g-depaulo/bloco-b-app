@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useFazemosItem } from "Api/QuemSomos"
 import Loading from "Components/Loading"
 import Markdown from 'Components/Markdown'
+import Text from "Components/Text"
 // import Text from "Components/Text"
 
 const Container = styled.div`
@@ -83,6 +84,10 @@ const TextWithColumns = styled.div`
   }
 `
 
+const AboutUsText = styled(Text)`
+  margin: 0;
+`
+
 export const AboutUs: FC = () => {
   const { data, error, isLoading } = useFazemosItem()
 
@@ -102,7 +107,7 @@ export const AboutUs: FC = () => {
       <Row>
         <div>
         <TextWithColumns>
-          <Markdown source={message.text} />
+          <Markdown source={message.text} renderers={{ paragraph: AboutUsText }} />
         </TextWithColumns>
         </div>
       </Row>

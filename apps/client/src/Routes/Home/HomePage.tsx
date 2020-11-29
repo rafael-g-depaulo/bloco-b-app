@@ -12,6 +12,10 @@ import Wireframe from "Components/Wireframe"
 
 import useHashUrlScroll from "Hooks/useHashUrlScroll"
 
+import BannerImg1 from "./HomepageBanner1.jpg"
+import BannerImg2 from "./HomepageBanner2.jpg"
+// import BannerImg3 from "./HomepageBanner3.jpg"
+
 const ImgContainer = styled.div`
 width: 100%;
 height: 417px;
@@ -73,7 +77,7 @@ export const HomePage: FC = () => {
       { showOQueFazemos &&
       <>
           <ImgContainer>
-            <img src="https://d12dkjq56sjcos.cloudfront.net/pub/media/magefan_blog/l/o/louvre-museum-paris-big-bus-tours-jan-2017.jpg" alt=""/>
+            <img src={BannerImg1} alt=""/>
           </ImgContainer>
           <div ref={whatWeDoRef} id="o-que-fazemos" >
             <WhatWeDo />
@@ -85,7 +89,7 @@ export const HomePage: FC = () => {
       { showUltimosAnos &&
       <>
           <ImgContainer>
-            <img src="https://tul.imgix.net/content/article/things-to-do-queenstown-1.jpg?auto=format,compress&w=1200&h=630&fit=crop" alt="Queenstown" />
+            <img src={BannerImg2} alt="" />
           </ImgContainer>
           <div ref={whatWeRecentlyDidRef} id="fizemos-recentemente" >
             <WhatWeRecentlyDo />

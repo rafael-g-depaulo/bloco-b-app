@@ -8,12 +8,14 @@ import StrapiAsset from "Utils/StrapiAsset"
 interface StrapiProjeto {
   Logo: StrapiAsset,
   Texto: string,
+  published_at: string,
   id: number,
 }
 
 export interface Projeto {
   Logo: Image,
   Texto: string,
+  published_at: Date,
   id: number,
 }
 
@@ -21,10 +23,12 @@ export interface Projeto {
 export const transformProjeto = ({
   Logo,
   Texto,
+  published_at,
   id,
 }: StrapiProjeto) => ({
   Logo: Asset2Image(Logo),
   Texto,
+  published_at: new Date(published_at),
   id,
 }) as Projeto
 

@@ -37,9 +37,9 @@ export const fetchProjeto = (id: number) => strapi
   .then(({ data }) => data)
   .then(transformProjeto)
   
-  export const useProjeto = (id: number) => useFetchApi(`/projetos/${id}`, () => fetchProjeto(id))
-  
-  export const fetchFazemosList = () => strapi
+export const useProjeto = (id: number) => useFetchApi(`/projetos/${id}`, () => fetchProjeto(id))
+
+export const fetchFazemosList = () => strapi
   .get<StrapiProjeto[]>(`/projetos`)
   .then(({ data }) => data)
   .then(fazemosList => fazemosList.map(transformProjeto))

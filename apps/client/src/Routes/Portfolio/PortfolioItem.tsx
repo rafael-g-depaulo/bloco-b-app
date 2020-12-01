@@ -64,9 +64,9 @@ export const PortfolioItem: FC<PortfolioItemProps> = ({
 }) => {
   return (
     <Card>
-      <Image src={portfolio.image.url} alt={portfolio.image.alternativeText} />
-      <ProjectName>{portfolio.name}</ProjectName>
-      <ProjectDescription>{portfolio.description}</ProjectDescription>
+      <Image src={portfolio.imagem.url} alt={portfolio.imagem.alternativeText} />
+      <ProjectName>{portfolio.nome}</ProjectName>
+      <ProjectDescription>{portfolio.descricaoCurta}</ProjectDescription>
       <Link href="https://www.google.com/" rel="noopener noreferrer" target="_blank">
         <Button>Baixar arquivo em PDF</Button>
       </Link>

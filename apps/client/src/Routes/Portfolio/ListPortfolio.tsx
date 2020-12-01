@@ -1,11 +1,13 @@
 import React, { FC } from "react"
+import styled from "styled-components"
 
 import Wireframe from "Components/Wireframe"
 import Banner from "Components/PageBanner"
 
-import styled from "styled-components"
-import { Portfolio } from "Api/Portfolio"
+import { usePortfolioList } from "Api/Portfolio"
+
 import PortfolioItem from "./PortfolioItem"
+import Loading from "Components/Loading"
 
 const Content = styled.div`
   /* padding */
@@ -40,12 +42,10 @@ const Content = styled.div`
 `
 
 export const ListPortfolio: FC = () => {
-  const aaaaaa: Portfolio = {
-    name: "name",
-    description: "ssssssssssssssssssss",
-    image: {url: "https://cdnuploads.aa.com.tr/uploads/Contents/2020/05/14/thumbs_b_c_88bedbc66bb57f0e884555e8250ae5f9.jpg?v=140708"},
-    pdf: {},
-  } as Portfolio
+  
+  const { data } = usePortfolioList()
+
+  if (!data) return <Loading />
 
   return (
     <Wireframe
@@ -55,7 +55,7 @@ export const ListPortfolio: FC = () => {
     >
       <Banner>Portifólio</Banner>
       <Content>
-        {Array(7).fill(null).map((_, i) => <PortfolioItem portfolio={aaaaaa} key={i}/>)}
+        {data.map((item, i) => <PortfolioItem portfolio={item} key={i}/>)}
       </Content>
     </Wireframe>
   )

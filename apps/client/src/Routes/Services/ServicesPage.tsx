@@ -15,11 +15,7 @@ export const Services: FC = () => {
 
   return (
     <Wireframe
-      onClickServicos={() => {
-        document.querySelector("#root")?.scrollIntoView({ behavior: "smooth" })
-      }}
-      onClickSomos={() => {}}
-      onClickUltimosAnos={() => {}}
+      onClickServicos={() => document.querySelector("#root")?.scrollIntoView({ behavior: "smooth" })}
     >
       <Container>
         <Banner>Serviços</Banner>

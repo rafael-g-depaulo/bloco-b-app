@@ -7,14 +7,15 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  margin: auto;
+  justify-content: flex-start;
+  margin: 0 auto;
 `
 
 const ProjectName = styled.span`
   font-family: Calibri;
   font-size: 22px;
   font-weight: bold;
+  margin-bottom: 0.2em;
 `
 const ProjectDescription = styled.p`
   font-family: Calibri;
@@ -30,6 +31,7 @@ const Image = styled.img`
 
 const Button = styled.button`
   border-radius: 5px;
+  padding: 0.2em 0.3em;
   border: solid 2px #903032;
   color: #903032;
   font-weight: bold;
@@ -67,7 +69,7 @@ export const PortfolioItem: FC<PortfolioItemProps> = ({
       <Image src={portfolio.imagem.url} alt={portfolio.imagem.alternativeText} />
       <ProjectName>{portfolio.nome}</ProjectName>
       <ProjectDescription>{portfolio.descricaoCurta}</ProjectDescription>
-      <Link href="https://www.google.com/" rel="noopener noreferrer" target="_blank">
+      <Link href={portfolio.pdf?.url} rel="noopener noreferrer" target="_blank">
         <Button>Baixar arquivo em PDF</Button>
       </Link>
     </Card>

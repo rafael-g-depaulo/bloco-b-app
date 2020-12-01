@@ -20,9 +20,9 @@ type OnClickFn = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => voi
 
 export interface WireframeProps {
   onClickHome?: OnClickFn,
-  onClickSomos: OnClickFn,
-  onClickServicos: OnClickFn,
-  onClickUltimosAnos: OnClickFn,
+  onClickSomos?: OnClickFn,
+  onClickServicos?: OnClickFn,
+  onClickUltimosAnos?: OnClickFn,
   onClickContato?: OnClickFn,
 }
 

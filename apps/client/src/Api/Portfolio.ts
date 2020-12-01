@@ -30,7 +30,6 @@ export const transformPortfolio = ({
   pdf,
 }) as Portfolio
 
-
 export const fetchPortfolio = (id: number) => strapi
   .get<StrapiPortfolio>(`/portifolios/${id}`)
   .then(({ data }) => data)

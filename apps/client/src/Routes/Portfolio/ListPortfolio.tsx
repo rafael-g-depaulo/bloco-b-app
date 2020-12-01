@@ -48,14 +48,10 @@ export const ListPortfolio: FC = () => {
   if (!data) return <Loading />
 
   return (
-    <Wireframe
-      onClickServicos={() => {}}
-      onClickUltimosAnos={() => {}}
-      onClickSomos={() => {}}
-    >
+    <Wireframe>
       <Banner>Portifólio</Banner>
       <Content>
-        {data.map((item, i) => <PortfolioItem portfolio={item} key={i}/>)}
+        {[data].flatMap(a => [a, a, a, a, a]).flat().map((item, i) => <PortfolioItem portfolio={item} key={i}/>)}
       </Content>
     </Wireframe>
   )

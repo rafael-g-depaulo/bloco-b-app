@@ -1,21 +1,16 @@
 import React, { FC } from "react"
 
 import Wireframe from "Components/Wireframe"
+import Banner from "Components/PageBanner"
 
-export interface ListPortfolioProps {
-  
-}
-
-export const ListPortfolio: FC<ListPortfolioProps> = ({
-  
-}) => {
+export const ListPortfolio: FC = () => {
   return (
     <Wireframe
       onClickServicos={() => {}}
       onClickUltimosAnos={() => {}}
       onClickSomos={() => {}}
     >
-      portfolio
+      <Banner>Portifólio</Banner>
     </Wireframe>
   )
 }

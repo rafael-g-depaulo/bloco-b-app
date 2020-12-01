@@ -2,8 +2,8 @@ import React, { FC } from "react"
 import styled from "styled-components"
 
 import Wireframe from "Components/Wireframe"
+import Banner from "Components/PageBanner"
 
-import Banner from "./Banner"
 import Content from "./Content"
 
 const Container = styled.div`
@@ -22,7 +22,7 @@ export const Services: FC = () => {
       onClickUltimosAnos={() => {}}
     >
       <Container>
-        <Banner />
+        <Banner>Serviços</Banner>
         <Content />
       </Container>
     </Wireframe>

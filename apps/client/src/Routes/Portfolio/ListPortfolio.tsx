@@ -51,7 +51,7 @@ export const ListPortfolio: FC = () => {
     <Wireframe>
       <Banner>Portifólio</Banner>
       <Content>
-        {[data].flatMap(a => [a, a, a, a, a]).flat().map((item, i) => <PortfolioItem portfolio={item} key={i}/>)}
+        {data.map((item, i) => <PortfolioItem portfolio={item} key={i}/>)}
       </Content>
     </Wireframe>
   )

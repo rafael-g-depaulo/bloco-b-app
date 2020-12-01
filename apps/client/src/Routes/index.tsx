@@ -7,10 +7,11 @@ import {
 } from "react-router-dom"
 
 import Loading from 'Components/Loading'
-import { showServicos } from 'FeatureFlags'
+import { showServicos, showPortfolio } from 'FeatureFlags'
 
 const Home = lazy(() => import('./Home'))
 const Services = lazy(() => import('./Services'))
+const Portfolio = lazy(() => import('./Portfolio'))
 
 export type RouterProps<MatchParams = {}> = {
   history?: History,
@@ -49,6 +50,17 @@ const Routes: FC = () => {
             {({ match }) => (
               <Suspense fallback={<Loading />}>
                 <Services match={match} />
+              </Suspense>
+            )}
+          </Route>
+        }
+
+        {/* protfolio router */}
+        { showPortfolio && 
+          <Route path={["/portfolio", "/portifolio", "/projetos"]}>
+            {({ match }) => (
+              <Suspense fallback={<Loading />}>
+                <Portfolio match={match} />
               </Suspense>
             )}
           </Route>

@@ -79,6 +79,8 @@ const Stripe = styled.div`
 
 /* const TextWithColumns = styled(Text)` */
 const TextWithColumns = styled.div`
+  text-align: justify;
+  text-justify: inter-word;
   @media (min-width: 1200px) {
     column-count: 3;
   }

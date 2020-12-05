@@ -69,7 +69,7 @@ export const PortfolioItem: FC<PortfolioItemProps> = ({
       <Image src={portfolio.imagem.url} alt={portfolio.imagem.alternativeText} />
       <ProjectName>{portfolio.nome}</ProjectName>
       <ProjectDescription>{portfolio.descricaoCurta}</ProjectDescription>
-      <Link href={portfolio.pdf?.url} rel="noopener noreferrer" target="_blank">
+      <Link href={portfolio?.pdf?.url} rel="noopener noreferrer" target="_blank">
         <Button>Baixar arquivo em PDF</Button>
       </Link>
     </Card>

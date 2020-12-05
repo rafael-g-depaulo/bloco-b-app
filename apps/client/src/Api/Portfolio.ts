@@ -7,7 +7,7 @@ export interface Portfolio {
   nome: string,
   descricaoCurta: string,
   imagem: Image,
-  pdf: StrapiAsset,
+  pdf?: StrapiAsset,
 }
 
 interface StrapiPortfolio {

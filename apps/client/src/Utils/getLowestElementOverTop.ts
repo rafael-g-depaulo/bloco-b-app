@@ -12,7 +12,7 @@ export const getLowestElementOverTop = (elementRefs: RefObject<HTMLElement>[], m
     .map(ele => ele.current!)
     .map(ele => ({ ele, rec: ele.getBoundingClientRect() }))
     .filter(({ rec }) => rec.y && rec.y <= margin)
-    .sort(({ rec: a }, { rec: b}) => b.y - a.y)
+    .sort(({ rec: a }, { rec: b }) => b.y - a.y)
 
   // if there is at least one element above the screem, return it
   // if there isnt, return null

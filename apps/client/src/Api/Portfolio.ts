@@ -42,4 +42,4 @@ export const fetchPortfolioList = () => strapi
   .then(({ data }) => data)
   .then(fazemosList => fazemosList.map(transformPortfolio))
 
-export const usePortfolioList = () => useFetchApi(`/projetos`, fetchPortfolioList)
+export const usePortfolioList = () => useFetchApi(`/portifolios`, fetchPortfolioList)

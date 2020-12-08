@@ -58,15 +58,15 @@ const WhatWeRecentlyDid: React.FC = () => {
 
   if (!data || data.length === 0) return <Container><Loading /></Container>
 
-  return (
-    <Container>
+    return (
+      <Container>
       <Title>O QUE FIZEMOS NOS ÚLTIMOS ANOS</Title>
       <Images>
         {data
           // use recently publiched projects first
-          .sort((a, b) => b.published_at.getTime() - a.published_at.getTime())
-          .map(({ Logo, id, Texto }) => (
-            <Projeto key={id} Logo={Logo} text={Texto} />
+          .sort((a, b) => b?.published_at?.getTime() - a?.published_at?.getTime())
+          .map(({ Logo, id, Texto }, i) => (
+            <Projeto key={id ?? i} Logo={Logo} text={Texto} />
           ))
         }
       </Images>

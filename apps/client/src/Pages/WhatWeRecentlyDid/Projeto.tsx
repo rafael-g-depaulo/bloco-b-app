@@ -78,7 +78,7 @@ export const Projeto: FC<ProjetoProps> = ({
   return (
     <ImageContainer onClick={toggleActive} onMouseLeave={resetActive}>
       <ImgBackground
-        src={Logo.url}
+        src={Logo?.url ?? "#"}
       >
         <ShadedBg
           show={active}

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { useProjetos } from "Api/Projetos"
+import { useProjetos } from "Api/FizemosUltimosAnos"
 import Loading from 'Components/Loading';
 import Projeto from './Projeto';
 

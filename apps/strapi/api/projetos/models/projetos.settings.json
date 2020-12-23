@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "projetos",
+  "collectionName": "o-que-fizemos",
   "info": {
-    "name": "projetos",
+    "name": "O Que Fizemos Nos Últimos Anos",
     "description": ""
   },
   "options": {

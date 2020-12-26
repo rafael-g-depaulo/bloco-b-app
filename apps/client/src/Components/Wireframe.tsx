@@ -27,12 +27,13 @@ export interface WireframeProps {
   onClickContato?: OnClickFn,
 }
 
-const NavItems: FC<WireframeProps> = ({
+const NavItems: FC<WireframeProps & { blackBg: boolean }> = ({
   onClickHome,
   onClickSomos,
   onClickServicos,
   onClickUltimosAnos,
   onClickContato,
+  blackBg,
 }) => (
   <>
     <NavItem to="/" onClick={onClickHome}>Home</NavItem>
@@ -40,7 +41,7 @@ const NavItems: FC<WireframeProps> = ({
       { showOQueFazemos && <NavItem to="/services" onClick={onClickServicos}>Serviços</NavItem> }
       { showUltimosAnos && <NavItem to="/#fizemos-recentemente" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</NavItem> }
       { showPortfolio   && <NavItem to="/portifolio">Portifólio</NavItem> }
-      { <Projetos /> }
+      { <Projetos blackBg={blackBg} /> }
     <NavItem to="/#contato" onClick={onClickContato}>Contato</NavItem>
   </>
 )
@@ -71,6 +72,7 @@ export const Wireframe: FC<WireframeProps> = ({
             onClickServicos={onClickServicos}
             onClickUltimosAnos={onClickUltimosAnos}
             onClickContato={onClickContato ?? defaultOnClickContato}
+            blackBg={false}
           />
         </Header>
       </div>
@@ -89,6 +91,7 @@ export const Wireframe: FC<WireframeProps> = ({
             onClickServicos={onClickServicos}
             onClickUltimosAnos={onClickUltimosAnos}
             onClickContato={onClickContato ?? defaultOnClickContato}
+            blackBg={true}
           />
         </Footer>
       </div>

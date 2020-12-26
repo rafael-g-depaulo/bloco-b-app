@@ -19,7 +19,10 @@ export const GlobalStyles = createGlobalStyle`
     letter-spacing: normal;
     text-align: left;
   }
-
+  
+  #root {
+    overflow: hidden;
+  }
 `
 
 export default GlobalStyles

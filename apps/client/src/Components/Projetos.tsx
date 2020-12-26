@@ -4,18 +4,17 @@ import styled from "styled-components"
 import Dropdown from "react-bootstrap/Dropdown"
 import Loading from "Components/Loading"
 
-const MyDropdown = styled(Dropdown)`
+const MyDropdown = styled(Dropdown)<{ blackBg: boolean }>`
   display: inline-block;
   height: fit-content;
 
   .dropdown-toggle, .btn {
     background: none !important;
-    background-color: white !important;
-    /* margin: ; */
+    background-color: ${props => props.blackBg ? "black" : "white" } !important;
   }
 
   .btn-success.dropdown-toggle {
-    color: black !important;
+    color: ${props => props.blackBg ? "white" : "black" } !important;
   }
 `
 
@@ -23,12 +22,16 @@ const MyDropdownMenu = styled(Dropdown.Menu)`
   display: flex;
   flex-direction: column;
 `
-
-export const Projetos: FC = () => {
+export interface ProjetosInterface {
+  blackBg?: boolean;
+}
+export const Projetos: FC<ProjetosInterface> = ({
+  blackBg,
+}) => {
   const data = Math.random() > 0.5 ? [{ text: "1" }, { text: "2" }, { text: "3" }] : undefined
   return (
-    <MyDropdown>
-      <MyDropdown.Toggle variant="success" id="dropdown-basic">
+    <MyDropdown blackBg={blackBg} drop={blackBg === false ? "down" : "up" }>
+      <MyDropdown.Toggle  variant="success" id="dropdown-basic">
         Projetos
       </MyDropdown.Toggle>
     

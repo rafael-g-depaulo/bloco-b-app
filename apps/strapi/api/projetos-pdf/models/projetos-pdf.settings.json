@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projetos_pdfs",
+  "info": {
+    "name": "Projetos-PDF"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "pdf": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

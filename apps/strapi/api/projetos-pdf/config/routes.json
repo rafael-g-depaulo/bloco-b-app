@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/projetos-pdfs",
+      "handler": "projetos-pdf.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/projetos-pdfs/count",
+      "handler": "projetos-pdf.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/projetos-pdfs/:id",
+      "handler": "projetos-pdf.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projetos-pdfs",
+      "handler": "projetos-pdf.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/projetos-pdfs/:id",
+      "handler": "projetos-pdf.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/projetos-pdfs/:id",
+      "handler": "projetos-pdf.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

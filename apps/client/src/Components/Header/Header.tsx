@@ -69,6 +69,11 @@ const HeaderContent = styled.div`
   }
 `;
 
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+`
+
 const Img = styled.img `
   /* margin-top: 40px; */
   width: 251px;
@@ -86,9 +91,9 @@ export const Header: FC = ({ children }) => {
           <Link to="/">
             <Img src={logo} alt="Bloco B Logo" />
           </Link>
-          <nav>
+          <Nav>
             {children}
-          </nav>
+          </Nav>
         </HeaderContent>
       </Container>
     </>

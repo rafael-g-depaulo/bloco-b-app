@@ -5,6 +5,7 @@ import Header from "Components/Header/Header"
 
 import styled from "styled-components"
 import NavItem from "Components/Header/NavItem"
+import Projetos from "./Projetos"
 
 const Content = styled.main`
   flex-grow: 1;
@@ -39,6 +40,7 @@ const NavItems: FC<WireframeProps> = ({
       { showOQueFazemos && <NavItem to="/services" onClick={onClickServicos}>Serviços</NavItem> }
       { showUltimosAnos && <NavItem to="/#fizemos-recentemente" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</NavItem> }
       { showPortfolio   && <NavItem to="/portifolio">Portifólio</NavItem> }
+      { <Projetos /> }
     <NavItem to="/#contato" onClick={onClickContato}>Contato</NavItem>
   </>
 )

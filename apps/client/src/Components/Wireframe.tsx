@@ -1,4 +1,4 @@
-import { showOQueFazemos, showPortfolio, showQuemSomos, showUltimosAnos } from "FeatureFlags"
+import { showOQueFazemos, showPortfolio, showQuemSomos, showUltimosAnos, showProjetos } from "FeatureFlags"
 import React, { FC, RefObject, useRef } from "react"
 import Footer from "Components/Footer/Footer"
 import Header from "Components/Header/Header"
@@ -43,7 +43,7 @@ const NavItems: FC<WireframeProps & { blackBg: boolean }> = ({
       { showUltimosAnos && <NavItem to="/#fizemos-recentemente" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</NavItem> }
       {/* { showPortfolio   && <NavItem to="/portifolio">Portifólio</NavItem> } */}
       { showPortfolio   && <Portifolio blackBg={blackBg} /> }
-      { <Projetos blackBg={blackBg} /> }
+      { showProjetos    && <Projetos blackBg={blackBg} /> }
     <NavItem to="/#contato" onClick={onClickContato}>Contato</NavItem>
   </>
 )

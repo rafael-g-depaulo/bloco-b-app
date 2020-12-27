@@ -5,7 +5,7 @@ import Header from "Components/Header/Header"
 
 import styled from "styled-components"
 import NavItem from "Components/Header/NavItem"
-import Projetos from "./Projetos"
+import Projetos from "./ProjetosDropdown"
 
 const Content = styled.main`
   flex-grow: 1;

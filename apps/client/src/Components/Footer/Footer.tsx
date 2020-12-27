@@ -203,6 +203,11 @@ const BottomSideContent = styled.div`
   }
 `;
 
+const Nav = styled.nav`
+  /* display: flex;
+  align-items: center; */
+  gap: 5px;
+`
 const Footer: React.FC = ({ children }) => {
 
   const { data, error, isLoading } = useContact()
@@ -255,9 +260,9 @@ const Footer: React.FC = ({ children }) => {
         <BottomSideContent>
           <strong>©2020 TODOS OS DIREITOS RESERVADOS - blocob.com.br</strong>
 
-          <nav>
+          <Nav>
             {children}
-          </nav>
+          </Nav>
         </BottomSideContent>
       </BottomSide>
     </Container>

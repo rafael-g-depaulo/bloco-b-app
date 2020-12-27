@@ -72,6 +72,7 @@ const HeaderContent = styled.div`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
+  gap: 5px;
 `
 
 const Img = styled.img `

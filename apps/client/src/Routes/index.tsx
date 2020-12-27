@@ -2,16 +2,17 @@ import React, { FC, lazy, Suspense } from 'react'
 import {
   BrowserRouter as BaseRouter,
   match,
+  Redirect,
   Route,
   Switch,
 } from "react-router-dom"
 
 import Loading from 'Components/Loading'
-import { showServicos, showPortfolio } from 'FeatureFlags'
+import { showServicos } from 'FeatureFlags'
 
 const Home = lazy(() => import('./Home'))
 const Services = lazy(() => import('./Services'))
-const Portfolio = lazy(() => import('./Portfolio'))
+// const Portfolio = lazy(() => import('./Portfolio'))
 
 export type RouterProps<MatchParams = {}> = {
   history?: History,
@@ -55,8 +56,10 @@ const Routes: FC = () => {
           </Route>
         }
 
+        {/* //! portfolio routes removed in favor of dropdown in navbar
+        */}
         {/* protfolio router */}
-        { showPortfolio && 
+        {/* { showPortfolio && 
           <Route path={["/portfolio", "/portifolio", "/projetos"]}>
             {({ match }) => (
               <Suspense fallback={<Loading />}>
@@ -64,7 +67,12 @@ const Routes: FC = () => {
               </Suspense>
             )}
           </Route>
-        }
+        } */}
+
+        {/* default 404 route (redirect to home) */}
+        <Route>
+          <Redirect to="/" />
+        </Route>
 
       </Switch>
 

@@ -72,7 +72,19 @@ const HeaderContent = styled.div`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 5px;
+  row-gap: 0;
+
+  @media (max-width: 992px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (min-width: 992.01px) {
+    margin-left: 0.5em;
+  }
 `
 
 const Img = styled.img `

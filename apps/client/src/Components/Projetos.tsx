@@ -1,7 +1,8 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-
 import Dropdown from "react-bootstrap/Dropdown"
+
+import { useProjetoList } from "Api/Projeto"
 import Loading from "Components/Loading"
 
 const MyDropdown = styled(Dropdown)<{ blackBg: boolean }>`
@@ -28,7 +29,7 @@ export interface ProjetosInterface {
 export const Projetos: FC<ProjetosInterface> = ({
   blackBg,
 }) => {
-  const data = Math.random() > 0.5 ? [{ text: "1" }, { text: "2" }, { text: "3" }] : undefined
+  const { data } = useProjetoList()
   return (
     <MyDropdown blackBg={blackBg} drop={blackBg === false ? "down" : "up" }>
       <MyDropdown.Toggle  variant="success" id="dropdown-basic">
@@ -41,8 +42,8 @@ export const Projetos: FC<ProjetosInterface> = ({
           !data ? <Loading /> :
 
           // if has data
-          data.map(item => (            
-            <MyDropdown.Item>{item.text}</MyDropdown.Item>
+          data.map(({ pdf, nome }) => (
+            <MyDropdown.Item key={pdf.id} href={pdf.url} target="none">{nome}</MyDropdown.Item>
           ))
         }
       </MyDropdownMenu>

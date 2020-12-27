@@ -5,7 +5,7 @@ import styled from "styled-components"
 const MyLink = styled.a`
   color: #2b3eeb;
 
-  text-decoration: none;
+  text-decoration: none !important;
 
   &:hover, &:focus {
     color: #5464f8;
@@ -16,16 +16,16 @@ const MyLink = styled.a`
   }
 `
 
-export const Link: FC = ({
+export const Link: FC<{href: string}> = ({
   ...props
 }) => {
-return (
-  <MyLink
-    target="_blank"
-    rel="noopener"
-    {...props}
-  />
-)
+  return (
+    <MyLink
+      target="_blank"
+      rel="noopener"
+      {...props}
+    />
+  )
 }
 
 export default Link

@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import styled from "styled-components"
 import Dropdown from "react-bootstrap/Dropdown"
 
-import { useProjetoList } from "Api/Projeto"
+import { usePortfolioList } from "Api/Portfolio"
 import Loading from "Components/Loading"
 
 const MyDropdown = styled(Dropdown)<{ blackBg: boolean }>`
@@ -28,17 +28,17 @@ const MyDropdownMenu = styled(Dropdown.Menu)`
   display: flex;
   flex-direction: column;
 `
-export interface ProjetosInterface {
+export interface PortifolioInterface {
   blackBg?: boolean;
 }
-export const Projetos: FC<ProjetosInterface> = ({
+export const Portifolio: FC<PortifolioInterface> = ({
   blackBg,
 }) => {
-  const { data } = useProjetoList()
+  const { data } = usePortfolioList()
   return (
     <MyDropdown blackBg={blackBg} drop={blackBg === false ? "down" : "up" }>
       <MyDropdown.Toggle  variant="success" id="dropdown-basic">
-        Projetos
+        Portifolio
       </MyDropdown.Toggle>
     
       <MyDropdownMenu>
@@ -47,8 +47,10 @@ export const Projetos: FC<ProjetosInterface> = ({
           !data ? <Loading /> :
 
           // if has data
-          data.map(({ pdf, nome }) => (
-            <MyDropdown.Item key={pdf.id} href={pdf.url} target="none">{nome}</MyDropdown.Item>
+          data
+          // .filter(({ pdf }) => pdf)
+          .map(({ nome, pdf }) => (
+            <MyDropdown.Item key={`${nome}.${pdf?.id}`} href={pdf?.url ?? "#"} target="none">{nome}</MyDropdown.Item>
           ))
         }
       </MyDropdownMenu>
@@ -56,4 +58,4 @@ export const Projetos: FC<ProjetosInterface> = ({
   )
 }
 
-export default Projetos
+export default Portifolio

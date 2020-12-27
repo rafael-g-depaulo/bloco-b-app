@@ -6,6 +6,7 @@ import Header from "Components/Header/Header"
 import styled from "styled-components"
 import NavItem from "Components/Header/NavItem"
 import Projetos from "./ProjetosDropdown"
+import Portifolio from "./PortifolioDropdown"
 
 const Content = styled.main`
   flex-grow: 1;
@@ -40,7 +41,8 @@ const NavItems: FC<WireframeProps & { blackBg: boolean }> = ({
       { showQuemSomos   && <NavItem to="/#sobre-nos" onClick={onClickSomos}>Quem Somos</NavItem> }
       { showOQueFazemos && <NavItem to="/services" onClick={onClickServicos}>Serviços</NavItem> }
       { showUltimosAnos && <NavItem to="/#fizemos-recentemente" onClick={onClickUltimosAnos}>O que fizemos nos últimos anos</NavItem> }
-      { showPortfolio   && <NavItem to="/portifolio">Portifólio</NavItem> }
+      {/* { showPortfolio   && <NavItem to="/portifolio">Portifólio</NavItem> } */}
+      { showPortfolio   && <Portifolio blackBg={blackBg} /> }
       { <Projetos blackBg={blackBg} /> }
     <NavItem to="/#contato" onClick={onClickContato}>Contato</NavItem>
   </>

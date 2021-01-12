@@ -2,11 +2,12 @@ import React, { FC, RefObject, useRef } from "react"
 import { useHistory } from "react-router-dom"
 import styled from 'styled-components'
 
-import { showOQueFazemos, showQuemSomos, showUltimosAnos } from "FeatureFlags"
+import { showOQueFazemos, showPoema, showQuemSomos, showUltimosAnos } from "FeatureFlags"
 
 import AboutUs from 'Pages/AboutUs'
 import WhatWeDo from 'Pages/WhatWeDo'
 import WhatWeRecentlyDo from 'Pages/WhatWeRecentlyDid'
+import Poem from "./Poem"
 
 import Wireframe from "Components/Wireframe"
 
@@ -64,9 +65,12 @@ export const HomePage: FC = () => {
       onClickUltimosAnos={() => history.location.pathname === "/" && hash === "#fizemos-recentemente" && handleScroll(whatWeRecentlyDidRef)}
     >
 
+      {/* SESSÃO DA ANIMAÇÃO */}
+      { showPoema && <Poem /> }
+
       {/* SESSÃO DE QUEM SOMOS */}
       { showQuemSomos &&
-      <>
+        <>
           <div ref={aboutUsRef} id="sobre-nos">
             <AboutUs />
           </div>
@@ -75,7 +79,7 @@ export const HomePage: FC = () => {
 
       {/* SESSÃO DE O QUE FAZEMOS (SERVIÇOS) */}
       { showOQueFazemos &&
-      <>
+        <>
           <ImgContainer>
             <img src={BannerImg1} alt=""/>
           </ImgContainer>
@@ -87,7 +91,7 @@ export const HomePage: FC = () => {
 
       {/* SESSÃO DE O QUE FIZEMOS NOS ULTIMOS ANOS */}
       { showUltimosAnos &&
-      <>
+        <>
           <ImgContainer>
             <img src={BannerImg2} alt="" />
           </ImgContainer>

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/poema",
+      "handler": "poema.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/poema",
+      "handler": "poema.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/poema",
+      "handler": "poema.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

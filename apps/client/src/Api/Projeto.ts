@@ -1,7 +1,6 @@
 import { strapi } from "Api"
 import useFetchApi from 'Hooks/useFetchApi'
 import StrapiAsset from "Utils/StrapiAsset"
-
 export interface Projeto {
   pdf: StrapiAsset,
   nome: string,

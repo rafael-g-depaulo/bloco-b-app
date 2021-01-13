@@ -57,7 +57,7 @@ export const Poem: FC = () => {
 
   return (
     <Container>
-      { playVideo
+      { playVideo && !!data.video
         ? <Video onClick={toggleVideo} video={data.video} />
         : <Capa onClick={toggleVideo} image={data.imagem} />
       }
